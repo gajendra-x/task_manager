@@ -1,0 +1,12 @@
+POST http://localhost:5000/api/user/add
+Content-Type: "application/json"
+
+{
+    "name": "Gajendra",
+    "email": "gajendra+3@gmail.com"
+}
+
+###
+GET http://localhost:5000/api/user/gajendra+1@gmail.com
+
+

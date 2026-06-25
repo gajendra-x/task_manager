@@ -1,0 +1,12 @@
+POST http://localhost:5000/api/todo/add
+Content-Type: "application/json"
+
+{
+    "title": "Read book",
+    "user_id": 6
+}
+
+###
+GET http://localhost:5000/api/todo/6?page=1&limit=2
+
+
