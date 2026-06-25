@@ -8,6 +8,7 @@ import (
 func main() {
 
 	db.InitializeDatabase()
-	seed.SeedUsers()
+	// seed.SeedUsers()
+	seed.SeedTodos()
 	// app.Server(constants.PORT)
 }

@@ -2,6 +2,7 @@ package db
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"task_manager/constants"
 
@@ -13,7 +14,16 @@ var CTX = context.Background()
 
 func InitializeDatabase() {
 	var err error
-	DB, err = pgxpool.New(CTX, constants.DB_URL)
+	config, _ := pgxpool.ParseConfig(constants.DB_URL)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	config.MaxConns = 32
+	config.MinConns = 16
+	DB, err = pgxpool.NewWithConfig(CTX, config)
+
+	fmt.Println(config.MaxConns)
 
 	if err != nil {
 		log.Fatal(err)
